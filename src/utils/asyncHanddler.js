@@ -1,10 +1,10 @@
-const aysncHandler =() =>{
-    (req,res,next)=>{
+const asyncHandler =() =>{
+    return (req,res,next)=>{
         Promise.resolve(requsetHandler(req,res,next)).catch((err) => next(err))
     }
 }
 
-export {aysncHandler}
+export {asyncHandler}
 
 // const aysncHandler =() => {}
 // const aysncHandler = (func)=>{ ()=>{}}
