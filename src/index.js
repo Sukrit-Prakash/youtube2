@@ -1,5 +1,6 @@
 // require('dotenv').config({path: './env'})
 import dotenv from "dotenv"
+import { app } from "./app.js";
 // import mongoose from "mongoose";
 // import { DB_NAME } from "./constants";
 
@@ -9,9 +10,18 @@ dotenv.config({
 })
 
 connectDB()
+.then(()=>{
+  app.listen(process.env.PORT || 8000,()=>{
+    console.log(`server is running at port :${process.env.PORT}`);
+  })
+})
+.catch((err)=>{
+  console.log("mogo db connectionn failed",err);
+})
 
 
-
+// whenever an asyynchoronous method returns it 
+// return with a promise
 
 /* import express from "express";
 const app = express()
